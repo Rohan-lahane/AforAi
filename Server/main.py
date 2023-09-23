@@ -43,6 +43,7 @@ async def get_image_labels(imageUrl: bytes = File(...), language: str = Form(...
         captions = vitgpt(image, language)
 
         yolo_output = yolo(image, language)
+        print("Yolo", yolo_output);
         
         return {
                 # "image": imageUrl,

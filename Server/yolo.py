@@ -47,6 +47,7 @@ def yolo(image: Any, language: str) -> Any:
       cv2.putText(image, f"{label}", (int(x1), int(y1) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)  # Thicker black text
     
    
-    image = np.array(image).tobytes()
-    image = base64.b64encode(image).decode('utf-8')
+      image = np.array(image)
+      # image = base64.b64encode(image).decode('utf-8')
+      image = base64.b64encode(cv2.imencode('.jpg', image)[1]).decode()
     return image
